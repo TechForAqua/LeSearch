@@ -159,8 +159,8 @@ export function Sidebar() {
         </div>
       </ScrollArea>
       {isModalOpen && (
-         <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center z-50">
-         <div className="bg-white rounded-md shadow-lg w-1/2 p-6 relative">
+         <div className="fixed inset-0 bg-gray-500  bg-opacity-50 flex items-center justify-center z-50">
+         <div className="bg-white dark:bg-[#222] rounded-md shadow-lg w-1/2 p-6 relative">
            {/* Close Button */}
            <button
              className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
@@ -174,24 +174,24 @@ export function Sidebar() {
            <div className="space-y-4">
              {/* Display Name */}
              <div>
-               <label className="block text-sm font-medium text-gray-700 mb-1">
+               <label className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1">
                  Display name
                </label>
                <input
                  type="text"
-                 className="w-full border rounded-md p-2 text-gray-700 focus:ring focus:ring-blue-500"
+                 className="w-full border rounded-md p-2 dark:text-white text-gray-700 focus:ring focus:ring-blue-500"
                  defaultValue="Tarun Sai Srinivas"
                />
              </div>
 
              {/* Workspace Name */}
              <div>
-               <label className="block text-sm font-medium text-gray-700 mb-1">
+               <label className="block text-sm font-medium dark:text-gray-300 text-gray-700 mb-1">
                  Workspace name
                </label>
                <input
                  type="text"
-                 className="w-full border rounded-md p-2 text-gray-400 bg-gray-100"
+                 className="w-full border rounded-md p-2 dark:bg-[#222] text-gray-400 bg-gray-100"
                  defaultValue="My Workspace"
                  disabled
                />
@@ -199,12 +199,12 @@ export function Sidebar() {
 
              {/* Email */}
              <div>
-               <label className="block text-sm font-medium text-gray-700 mb-1">
+               <label className="block text-sm font-medium dark:text-gray-300  text-gray-700 mb-1">
                  Email
                </label>
                <input
                  type="email"
-                 className="w-full border rounded-md p-2 text-gray-400 bg-gray-100"
+                 className="w-full border rounded-md p-2 text-gray-400 dark:bg-[#222] bg-gray-100"
                  defaultValue="tarunsaisrinivas7@gmail.com"
                  disabled
                />
@@ -212,11 +212,11 @@ export function Sidebar() {
 
              {/* Language */}
              <div>
-               <label className="block text-sm font-medium text-gray-700 mb-1">
+               <label className="block text-sm font-medium dark:text-white text-gray-700 mb-1">
                  Language
                </label>
                <select
-                 className="w-full border rounded-md p-2 text-gray-700 focus:ring focus:ring-blue-500"
+                 className="w-full border rounded-md p-2 dark:text-white text-gray-700 focus:ring focus:ring-blue-500"
                  defaultValue="English"
                >
                  <option>English</option>
@@ -227,11 +227,11 @@ export function Sidebar() {
 
              {/* Citation Format */}
              <div>
-               <label className="block text-sm font-medium text-gray-700 mb-1">
+               <label className="block text-sm font-medium dark:text-white text-gray-700 mb-1">
                  Citation Format
                </label>
                <select
-                 className="w-full border rounded-md p-2 text-gray-700 focus:ring focus:ring-blue-500"
+                 className="w-full border rounded-md p-2 dark:text-white text-gray-700 focus:ring focus:ring-blue-500"
                  defaultValue="APA (7th edition)"
                >
                  <option>APA (7th edition)</option>

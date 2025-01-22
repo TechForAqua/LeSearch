@@ -13,8 +13,10 @@ import {
   ChevronDown,
   Plus,
   Sparkles,
+  X,
 } from "lucide-react";
 import { useState } from "react";
+import { ModeToggle } from "@/components/ui/ModeToggle";
 
 export function Sidebar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +36,7 @@ export function Sidebar() {
     };
 
   return (
-    <div className="w-64 border-r bg-gray-50 flex flex-col">
+    <div className="w-64 border-r dark:bg-black bg-gray-50 flex flex-col">
       <div className="p-4 border-b relative">
         <div className="flex items-center justify-between">
           {/* Button with Dropdown */}
@@ -48,22 +50,22 @@ export function Sidebar() {
               <ChevronDown className="h-4 w-4" />
             </Button>
             {isOpen && (
-              <div className="absolute left-0 top-10 w-48 bg-white shadow-lg rounded-md border border-gray-200 z-10">
+              <div className="absolute left-0 top-10 w-48 dark:bg-black bg-white shadow-lg rounded-md border border-gray-200 z-10">
                 <ul>
                   <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#333] cursor-pointer"
                     onClick={openModal}
                   >
-                    Option 1
+                    Settings
                   </li>
                   <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => alert("Option 2 selected")}
+                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#333]  cursor-pointer"
+                    
                   >
-                    Option 2
+                    <ModeToggle />
                   </li>
                   <li
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    className="px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#333]  cursor-pointer"
                     onClick={() => alert("Option 3 selected")}
                   >
                     Option 3
@@ -156,6 +158,98 @@ export function Sidebar() {
           </div>
         </div>
       </ScrollArea>
+      {isModalOpen && (
+         <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex items-center justify-center z-50">
+         <div className="bg-white rounded-md shadow-lg w-1/2 p-6 relative">
+           {/* Close Button */}
+           <button
+             className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+             onClick={closeModal}
+           >
+             <X className="h-5 w-5" />
+           </button>
+
+           {/* Modal Content */}
+           <h2 className="text-lg font-medium mb-6">My Account</h2>
+           <div className="space-y-4">
+             {/* Display Name */}
+             <div>
+               <label className="block text-sm font-medium text-gray-700 mb-1">
+                 Display name
+               </label>
+               <input
+                 type="text"
+                 className="w-full border rounded-md p-2 text-gray-700 focus:ring focus:ring-blue-500"
+                 defaultValue="Tarun Sai Srinivas"
+               />
+             </div>
+
+             {/* Workspace Name */}
+             <div>
+               <label className="block text-sm font-medium text-gray-700 mb-1">
+                 Workspace name
+               </label>
+               <input
+                 type="text"
+                 className="w-full border rounded-md p-2 text-gray-400 bg-gray-100"
+                 defaultValue="My Workspace"
+                 disabled
+               />
+             </div>
+
+             {/* Email */}
+             <div>
+               <label className="block text-sm font-medium text-gray-700 mb-1">
+                 Email
+               </label>
+               <input
+                 type="email"
+                 className="w-full border rounded-md p-2 text-gray-400 bg-gray-100"
+                 defaultValue="tarunsaisrinivas7@gmail.com"
+                 disabled
+               />
+             </div>
+
+             {/* Language */}
+             <div>
+               <label className="block text-sm font-medium text-gray-700 mb-1">
+                 Language
+               </label>
+               <select
+                 className="w-full border rounded-md p-2 text-gray-700 focus:ring focus:ring-blue-500"
+                 defaultValue="English"
+               >
+                 <option>English</option>
+                 <option>Spanish</option>
+                 <option>French</option>
+               </select>
+             </div>
+
+             {/* Citation Format */}
+             <div>
+               <label className="block text-sm font-medium text-gray-700 mb-1">
+                 Citation Format
+               </label>
+               <select
+                 className="w-full border rounded-md p-2 text-gray-700 focus:ring focus:ring-blue-500"
+                 defaultValue="APA (7th edition)"
+               >
+                 <option>APA (7th edition)</option>
+                 <option>MLA</option>
+                 <option>Chicago</option>
+               </select>
+             </div>
+           </div>
+
+           {/* Footer */}
+           <div className="mt-6 flex justify-end">
+             <Button variant="secondary" onClick={closeModal}>
+               Close
+             </Button>
+           </div>
+         </div>
+       </div>
+     )}
     </div>
   );
 }

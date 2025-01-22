@@ -20,17 +20,17 @@ export function MainContent() {
         <p className="text-gray-500 mb-8">Import documents and video, start writing or create a new recording</p>
 
         <div className="grid grid-cols-3 gap-4 mb-8">
-          <Card className="p-6 hover:bg-gray-50 cursor-pointer" onClick={() => setActiveCard("write")}>
+          <Card className="p-6 hover:scale-105  cursor-pointer" onClick={() => setActiveCard("write")}>
             <FileText className="h-6 w-6 mb-4" />
             <h3 className="font-semibold mb-1">Write</h3>
             <p className="text-sm text-gray-500">Write and cite with AI</p>
           </Card>
-          <Card className="p-6 hover:bg-gray-50 cursor-pointer" onClick={() => setActiveCard("import")}>
+          <Card className="p-6 hover:scale-105 cursor-pointer" onClick={() => setActiveCard("import")}>
             <Upload className="h-6 w-6 mb-4" />
             <h3 className="font-semibold mb-1">Import</h3>
             <p className="text-sm text-gray-500">Chat with docs and videos</p>
           </Card>
-          <Card className="p-6 hover:bg-gray-50 cursor-pointer relative" onClick={() => setActiveCard("record")}>
+          <Card className="p-6 hover:scale-105 cursor-pointer relative" onClick={() => setActiveCard("record")}>
             <Mic className="h-6 w-6 mb-4" />
             <h3 className="font-semibold mb-1">Record</h3>
             <p className="text-sm text-gray-500">Record and chat with audio</p>

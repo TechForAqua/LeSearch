@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<!-- This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
@@ -33,4 +33,26 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details. -->
+
+
+Steps to run the project:
+1. Clone the repository
+```bash
+git clone https://github.com/TechForAqua/LeSearch.git
+```
+2. Navigate to the project directory
+3. Install the dependencies using npm
+```bash
+npm install 
+```
+(even if there is a problem then use the npm install next)
+4.To Start the project use the command 
+```bash
+npm run dev
+```
+5. Open the project in the browser at http://localhost:3000
+```bash
+http://localhost:3000
+```
+Live Site: https://lesearch.vercel.app/

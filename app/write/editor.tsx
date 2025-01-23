@@ -5,12 +5,13 @@ import "@blocknote/core/fonts/inter.css"
 import { useCreateBlockNote } from "@blocknote/react"
 import { BlockNoteView } from "@blocknote/mantine"
 import "@blocknote/mantine/style.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export function Editor() {
   // Stores the document JSON.
   const [blocks, setBlocks] = useState<Block[]>([])
-    console.log("blocks fix",blocks)
+  const [mounted, setMounted] = useState(false)
+
   // Creates a new editor instance.
   const editor = useCreateBlockNote({
     initialContent: [
@@ -32,12 +33,24 @@ export function Editor() {
     ],
   })
 
+  // Only render the editor after mounting on the client
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return (
+      <div className="flex-1 bg-white rounded-lg shadow-inner overflow-hidden">
+        <div className="p-4">Loading editor...</div>
+      </div>
+    )
+  }
+
   return (
     <div className="flex-1 bg-white rounded-lg shadow-inner overflow-hidden">
       <BlockNoteView
         editor={editor}
         onChange={() => {
-          // Saves the document JSON to state.
           setBlocks(editor.document)
         }}
         theme="light"

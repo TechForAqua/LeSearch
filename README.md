@@ -55,4 +55,7 @@ npm run dev
 ```bash
 http://localhost:3000
 ```
-Live Site: https://lesearch.vercel.app/
+Live Site: https://le-search.vercel.app/ 
+```bash
+https://le-search.vercel.app/
+```

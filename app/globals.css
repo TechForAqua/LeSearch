@@ -5,6 +5,19 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+/* globals.css */
+
+/* Light Mode Selection */
+::selection {
+  background-color: #4A90E2; /* Light mode selection background */
+  color: white; /* Light mode text color */
+}
+
+/* Dark Mode Selection */
+html.dark ::selection {
+  background-color: #1E3A8A; /* Dark mode selection background */
+  color: #E0E7FF; /* Dark mode text color */
+}
 
 @layer base {
   :root {

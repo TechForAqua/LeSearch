@@ -1,50 +1,61 @@
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { FileText, Upload, Mic, Sparkles } from "lucide-react"
-import { FileImport } from "./file-import"
-import { AudioRecorder } from "./audio-recorder"
-
-
-
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { FileText, Upload, Mic, Sparkles, Camera } from "lucide-react";
+import { FileImport } from "./file-import";
+import { AudioRecorder } from "./audio-recorder";
+import { useRouter } from "next/navigation";
+import { SearchComponent } from "./searchComponent";
 
 export function MainContent() {
-  const [activeCard, setActiveCard] = useState<"write" | "import" | "record" | null>(null)
-
+  const router = useRouter();
+  const [activeCard, setActiveCard] = useState<
+    "write" | "import" | "record" | null
+  >(null);
+  const handleClick = () => {
+    router.push("/write");
+  };
   return (
     <div className="flex-1 p-8">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-2">Welcome to Unriddle Tarun</h1>
-        <p className="text-gray-500 mb-8">Import documents and video, start writing or create a new recording</p>
-
+        <h1 className="text-4xl font-bold mb-2">Welcome to LeSearch Tarun</h1>
+        <p className="text-gray-500 mb-8">
+          Import documents and video, start writing or create a new recording
+        </p>
         <div className="grid grid-cols-3 gap-4 mb-8">
-          <Card className="p-6 hover:scale-105  cursor-pointer" onClick={() => setActiveCard("write")}>
+          <Card
+            className="p-6 hover:scale-105  cursor-pointer"
+            onClick={handleClick}
+          >
             <FileText className="h-6 w-6 mb-4" />
             <h3 className="font-semibold mb-1">Write</h3>
             <p className="text-sm text-gray-500">Write and cite with AI</p>
           </Card>
-          <Card className="p-6 hover:scale-105 cursor-pointer" onClick={() => setActiveCard("import")}>
+          <Card
+            className="p-6 hover:scale-105 cursor-pointer"
+            onClick={() => setActiveCard("import")}
+          >
             <Upload className="h-6 w-6 mb-4" />
             <h3 className="font-semibold mb-1">Import</h3>
             <p className="text-sm text-gray-500">Chat with docs and videos</p>
           </Card>
-          <Card className="p-6 hover:scale-105 cursor-pointer relative" onClick={() => setActiveCard("record")}>
-            <Mic className="h-6 w-6 mb-4" />
-            <h3 className="font-semibold mb-1">Record</h3>
+          <Card
+            className="p-6 hover:scale-105 cursor-pointer relative"
+            onClick={() => setActiveCard("record")}
+          >
+            <Camera className="h-6 w-6 mb-4" />
+            <h3 className="font-semibold mb-1">Capture</h3>
             <p className="text-sm text-gray-500">Record and chat with audio</p>
             <Badge className="absolute top-4 right-4" variant="secondary">
               NEW
             </Badge>
           </Card>
         </div>
-
         {activeCard === "import" && <FileImport />}
         {activeCard === "record" && <AudioRecorder />}
-
         <Input placeholder="Search your library..." className="mb-8" />
-
         <div className="space-y-6">
           <div>
             <h2 className="text-sm font-medium text-gray-500 mb-2">Actions</h2>
@@ -57,7 +68,8 @@ export function MainContent() {
             <h2 className="text-sm font-medium text-gray-500 mb-2">Library</h2>
             <div className="space-y-1">
               <Button variant="ghost" className="w-full justify-start gap-2">
-                <FileText className="h-4 w-4" /> The Mechanisms of Nuclear Fission
+                <FileText className="h-4 w-4" /> The Mechanisms of Nuclear
+                Fission
               </Button>
               <Button variant="ghost" className="w-full justify-start gap-2">
                 <FileText className="h-4 w-4" /> Welcome guide
@@ -70,9 +82,8 @@ export function MainContent() {
               </Button>
             </div>
           </div>
-        </div>
+        </div>{" "}
       </div>
     </div>
-  )
+  );
 }
-

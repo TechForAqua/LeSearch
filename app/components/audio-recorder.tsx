@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { Mic, Square, Play, Pause } from "lucide-react"
+import { Mic, Square, Play, Pause, Camera, Video } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function AudioRecorder() {
@@ -49,18 +49,18 @@ export function AudioRecorder() {
   return (
     <div className="p-6 border rounded-lg">
       <div className="text-center">
-        <Mic className="h-12 w-12 mx-auto mb-4 text-gray-400" />
+        <Camera className="h-12 w-12 mx-auto mb-4 text-gray-400" />
         <h3 className="font-semibold mb-1">Record</h3>
-        <p className="text-sm text-gray-500 mb-4">Click to start recording audio</p>
+        <p className="text-sm text-gray-500 mb-4">Click to start capture</p>
         {isRecording ? (
           <Button onClick={stopRecording} variant="destructive">
             <Square className="h-4 w-4 mr-2" />
-            Stop Recording
+            Stop Capturing
           </Button>
         ) : (
           <Button onClick={startRecording}>
-            <Mic className="h-4 w-4 mr-2" />
-            Start Recording
+              <Video className="h-4 w-4 mr-2" />
+            Start Capturing
           </Button>
         )}
         {audioURL && (

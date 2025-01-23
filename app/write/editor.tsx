@@ -10,7 +10,7 @@ import { useState } from "react"
 export function Editor() {
   // Stores the document JSON.
   const [blocks, setBlocks] = useState<Block[]>([])
-
+    console.log("blocks fix",blocks)
   // Creates a new editor instance.
   const editor = useCreateBlockNote({
     initialContent: [

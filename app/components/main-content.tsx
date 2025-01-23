@@ -3,11 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Upload, Mic, Sparkles, Camera } from "lucide-react";
+import { FileText, Upload, Sparkles, Camera } from "lucide-react";
 import { FileImport } from "./file-import";
 import { AudioRecorder } from "./audio-recorder";
 import { useRouter } from "next/navigation";
-import { SearchComponent } from "./searchComponent";
 
 export function MainContent() {
   const router = useRouter();

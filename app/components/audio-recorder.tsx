@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
-import { Mic, Square, Play, Pause, Camera, Video } from "lucide-react"
+import {  Square, Play, Pause, Camera, Video } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function AudioRecorder() {

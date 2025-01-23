@@ -1,8 +1,6 @@
 "use client"
 // import { TopBanner } from "./components/top-banner"
-import { Sidebar } from "./components/sidebar"
 import { MainContent } from "./components/main-content"
-import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/ui/ModeToggle"
 
 export default function Home() {

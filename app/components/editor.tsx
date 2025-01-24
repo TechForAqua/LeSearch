@@ -7,7 +7,7 @@ import { BlockNoteView } from "@blocknote/mantine"
 import "@blocknote/mantine/style.css"
 import { useState, useEffect } from "react"
 
-export function Editor() {
+const Editor = () => {
   // Stores the document JSON.
   const [blocks, setBlocks] = useState<Block[]>([])
   console.log("blocks fix",blocks)
@@ -59,4 +59,6 @@ export function Editor() {
     </div>
   )
 }
+
+export default Editor
 

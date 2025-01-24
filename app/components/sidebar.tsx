@@ -56,6 +56,9 @@ export function Sidebar() {
   const homeclick = () => {
     router.push("/");
   };
+  const handleGraph = () => {
+    router.push("/graph");
+  };
   return (
     <div className="relative">
       {/* Toggle button (always visible) */}
@@ -199,7 +202,7 @@ export function Sidebar() {
               {isSidebarOpen && <span>Search</span>}
             </Button>
             <SearchComponent open={open} onOpenChange={setOpen} />
-            <Button variant="ghost" className="w-full justify-start gap-2">
+            <Button variant="ghost" onClick={handleGraph} className="w-full justify-start gap-2">
               <GitGraph className="h-4 w-4" />{" "}
               {isSidebarOpen && <span>Graph</span>}
             </Button>

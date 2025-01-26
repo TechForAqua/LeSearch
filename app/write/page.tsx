@@ -1,10 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
-
-// Explicitly typing the dynamic import
-
-
 export default function WritePage() {
   const EditorComponent = useMemo(
     () => dynamic(() => import("../components/editor"), { ssr: false }),

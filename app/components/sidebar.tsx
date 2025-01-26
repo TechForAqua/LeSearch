@@ -156,13 +156,13 @@ export function Sidebar() {
                   <ul>
                     <li
                       className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#333] cursor-pointer"
-                      onClick={() => alert("Create New Document")}
+                      onClick={() => router.push("/import")}
                     >
                       <File className="h-4 w-4" /> Import
                     </li>
                     <li
                       className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 dark:hover:bg-[#333] cursor-pointer"
-                      onClick={() => alert("Create New Folder")}
+                      onClick={() => router.push("/write")}
                     >
                       <NotebookPen className="h-4 w-4" /> Note
                     </li>

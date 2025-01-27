@@ -24,7 +24,9 @@ import {
   NotebookPen,
   FolderOpen,
 } from "lucide-react";
-import { useState } from "react";
+
+
+import { useEffect, useState,useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { SearchComponent } from "./searchComponent";
 
@@ -39,6 +41,7 @@ const getBarColor = (current: number, total: number): string => {
 export function Sidebar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isMac, setIsMac] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState<boolean>(false);
@@ -53,6 +56,27 @@ export function Sidebar() {
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
   const togglePlusMenu = () => setIsPlusMenuOpen((prev) => !prev);
 
+  useEffect(() => {
+    setIsMac(navigator.platform.toUpperCase().includes("MAC"))
+  }, [])
+
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent) => {
+      // Check if Ctrl (Windows/Linux) or Command (macOS) is pressed along with "K"
+      if ((event.key === "k" || event.key === "K") && (isMac ? event.metaKey : event.ctrlKey)) {
+        event.preventDefault()
+        setOpen((open) => !open)
+      }
+    },
+    [isMac],
+  )
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown)
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [handleKeyDown])
   const homeclick = () => {
     router.push("/");
   };
@@ -195,14 +219,24 @@ export function Sidebar() {
             </Button>
             <Button
               variant="ghost"
-              className="w-full justify-start gap-2"
+              className="w-full justify-between items-center gap-2"
               onClick={() => setOpen(true)}
             >
-              <Search className="h-4 w-4" />{" "}
-              {isSidebarOpen && <span>Search</span>}
+              <div className="flex items-center gap-2">
+                <Search className="h-4 w-4" />
+                {isSidebarOpen && <span>Search</span>}
+              </div>
+              <kbd className="px-2 py-1 text-xs font-mono text-gray-500 bg-gray-200 rounded">
+                {isMac ? "⌘" : "Ctrl"} K
+              </kbd>
             </Button>
+
             <SearchComponent open={open} onOpenChange={setOpen} />
-            <Button variant="ghost" onClick={handleGraph} className="w-full justify-start gap-2">
+            <Button
+              variant="ghost"
+              onClick={handleGraph}
+              className="w-full justify-start gap-2"
+            >
               <GitGraph className="h-4 w-4" />{" "}
               {isSidebarOpen && <span>Graph</span>}
             </Button>

@@ -226,7 +226,7 @@ export function Sidebar() {
                 <Search className="h-4 w-4" />
                 {isSidebarOpen && <span>Search</span>}
               </div>
-              <kbd className="px-2 py-1 text-xs font-mono text-gray-500 bg-gray-200 rounded">
+              <kbd className="px-2  py-1 text-xs font-mono dark:text-gray-500 dark:bg-black bg-gray-200 rounded">
                 {isMac ? "⌘" : "Ctrl"} K
               </kbd>
             </Button>

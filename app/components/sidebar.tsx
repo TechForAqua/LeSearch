@@ -29,6 +29,7 @@ import {
 import { useEffect, useState,useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { SearchComponent } from "./searchComponent";
+import { FeedbackModal } from "./feedback-modal";
 
 const getBarColor = (current: number, total: number): string => {
   const percentage = (current / total) * 100;
@@ -44,6 +45,7 @@ export function Sidebar() {
   const [isMac, setIsMac] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState<boolean>(false)
   const [isPlusMenuOpen, setIsPlusMenuOpen] = useState<boolean>(false);
   const [open, setOpen] = useState(false);
   const toggleDropdown = () => setIsOpen(!isOpen);
@@ -330,8 +332,8 @@ export function Sidebar() {
               <Users className="h-4 w-4" />{" "}
               {isSidebarOpen && <span>Invite and earn</span>}
             </Button>
-            <Button variant="ghost" className="w-full justify-start gap-2">
-              <ThumbsUp className="h-4 w-4" />{" "}
+            <Button variant="ghost" className="w-full justify-start gap-2" onClick={() => setIsFeedbackOpen(true)}>
+              <ThumbsUp className="h-4 w-4" />
               {isSidebarOpen && <span>Feedback</span>}
             </Button>
             <Button variant="ghost" className="w-full justify-start gap-2">
@@ -435,6 +437,7 @@ export function Sidebar() {
           </div>
         </div>
       )}
+       <FeedbackModal isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
     </div>
   );
 }
